@@ -1,0 +1,16 @@
+/* styles.css */
+.image-display {
+  width: 75%; /* Adjust this value as needed */
+  height: auto;
+}
+
+.tags-container {
+  flex: 1;
+  padding-left: 20px; /* Add some spacing between image and tags */
+  overflow: auto; /* Enable scrolling if content overflows */
+}
+
+.flex-container {
+  display: flex;
+  align-items: flex-start; /* Align items at the top of the flex container */
+}
