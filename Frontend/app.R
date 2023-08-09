@@ -39,7 +39,9 @@ ui <- fluidPage(
               tags$li("Ethics in AI")
             ),
             # Button to accept tags
-            actionButton("accept_tags", "Accept Tags")
+            actionButton("accept_tags", "Accept Tags"),
+            # Button to reject tags
+            actionButton("reject_tags", "Reject Tags")
         )
     )
   )
@@ -59,6 +61,12 @@ server <- function(input, output) {
   # Action when the "Accept Tags" button is clicked
   observeEvent(input$accept_tags, {
     # Do something with the accepted tags, e.g., save them to a database
+    # You can add your own logic here
+  })
+  
+  # Action when the "Reject Tags" button is clicked
+  observeEvent(input$reject_tags, {
+    # Do something when the tags are rejected, e.g., remove them or notify the user
     # You can add your own logic here
   })
 }
