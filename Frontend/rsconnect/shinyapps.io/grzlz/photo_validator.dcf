@@ -5,9 +5,10 @@ account: grzlz
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 9580340
-bundleId: 7549404
+bundleId: 7554104
 url: https://grzlz.shinyapps.io/photo_validator/
-when: 1691608076.15405
-lastSyncTime: 1691608076.15408
+when: 1691707246.83068
+lastSyncTime: 1691707246.83071
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: new_app.R

@@ -12,7 +12,10 @@ ui <- fluidPage(
       actionButton("boton", "Mostrar cosas aleatorias")
     ),
     mainPanel(
-      textOutput("listaAleatoria")
+      textOutput("listaAleatoria"),
+      actionButton("accept_tags", "Accept Tags"),
+      # Button to reject tags
+      actionButton("reject_tags", "Reject Tags")
     )
   )
 )
@@ -24,7 +27,7 @@ server <- function(input, output) {
     cuerpo_respuesta <- content(respuesta, "text")
     print(cuerpo_respuesta)
     output$listaAleatoria <- renderText({
-      cuerpo_respuesta
+      cuerpo_respuesta 
     })
   })
 }

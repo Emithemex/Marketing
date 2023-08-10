@@ -1,6 +1,7 @@
 # Load required libraries
 library(shiny)
 library(shinyWidgets)
+library(httr)
 
 # UI logic
 ui <- fluidPage(
@@ -27,16 +28,7 @@ ui <- fluidPage(
             h3("Tags Related to AI:"),
             tags$ul(
               style = "list-style: none; padding-left: 0;",
-              tags$li("Artificial Intelligence"),
-              tags$li("Machine Learning"),
-              tags$li("Neural Networks"),
-              tags$li("Deep Learning"),
-              tags$li("Natural Language Processing"),
-              tags$li("Computer Vision"),
-              tags$li("Data Science"),
-              tags$li("Robotics"),
-              tags$li("Automation"),
-              tags$li("Ethics in AI")
+              textOutput("image_tags")
             ),
             # Button to accept tags
             actionButton("accept_tags", "Accept Tags"),
@@ -50,10 +42,15 @@ ui <- fluidPage(
 # Server logic
 server <- function(input, output) {
   # Function to render the uploaded image
+  observeEvent(input$image_upload, {
+    respuesta <- GET("https://cadd46ylxa.execute-api.us-east-1.amazonaws.com/prod/")
+    cuerpo_respuesta <- content(respuesta, "text")
+    output$image_tags <- renderText({
+      cuerpo_respuesta 
+    })
+  })
+  
   output$image_display <- renderImage({
-    if (is.null(input$image_upload)) {
-      return(NULL)
-    }
     img_path <- input$image_upload$datapath
     list(src = img_path, alt = "Uploaded image", width = "100%")
   }, deleteFile = FALSE)
