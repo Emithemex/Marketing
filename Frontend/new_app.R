@@ -21,9 +21,10 @@ ui <- fluidPage(
 server <- function(input, output) {
   observeEvent(input$boton, {
     respuesta <- GET("https://cadd46ylxa.execute-api.us-east-1.amazonaws.com/prod/")
-    print(respuesta)
+    cuerpo_respuesta <- content(respuesta, "text")
+    print(cuerpo_respuesta)
     output$listaAleatoria <- renderText({
-      sample(cosas, 5, replace = TRUE)
+      cuerpo_respuesta
     })
   })
 }
