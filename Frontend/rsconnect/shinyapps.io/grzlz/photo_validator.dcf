@@ -1,0 +1,13 @@
+name: photo_validator
+title: photo_validator
+username:
+account: grzlz
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9580340
+bundleId: 7549404
+url: https://grzlz.shinyapps.io/photo_validator/
+when: 1691608076.15405
+lastSyncTime: 1691608076.15408
+asMultiple: FALSE
+asStatic: FALSE
